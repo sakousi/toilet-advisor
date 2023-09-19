@@ -2,4 +2,6 @@
 
 require('src/model.php');
 
-require('templates/homepage.php');
+require_once('src/controllers/homepage.php');
+
+homepage();
