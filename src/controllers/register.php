@@ -2,6 +2,6 @@
 
 require_once('src/model.php');
 
-function register() {
+function registerController() {
 	require('templates/register.php');
 }
