@@ -4,6 +4,8 @@ class City{
     private $id = 0;
     private $name = '';
     private $zipCode = '';
+    private $latitude = '';
+    private $longitude = '';
     private $toilets = array();
 
 
@@ -15,6 +17,8 @@ class City{
         $city = $req->fetch();
         $this->id = $city['id'];
         $this->name = $city['name'];
+        $this->latitude = $city['latitude'];
+        $this->longitude = $city['longitude'];
         $this->zipCode = $city['zip_code'];
         $this->toilets = $city['toilets']; //array of toilets ids
 
@@ -48,6 +52,19 @@ class City{
         $req = $bdd->prepare('UPDATE cities SET zip_code = ? WHERE id = ?');
         $req->execute(array($zipCode, $this->id));
         $this->zipCode = $zipCode;
+    }
+
+    public function getPosition() {
+        return array($this->latitude, $this->longitude);
+    }
+
+    public function setPosition($latitude, $longitude) {
+        //update latitude and longitude in database
+        global $bdd;
+        $req = $bdd->prepare('UPDATE cities SET latitude = ?, longitude = ? WHERE id = ?');
+        $req->execute(array($latitude, $longitude, $this->id));
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
     }
 
     public function getToilets() {
