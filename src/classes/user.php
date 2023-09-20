@@ -29,7 +29,7 @@ class User {
         return $this->id;
     }
     
-    public function getUsernameById($id) {
+    public function getUsername() {
         return $this->username;
     }
 
