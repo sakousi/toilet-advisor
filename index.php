@@ -2,11 +2,18 @@
 require('src/controllers/homepage.php');
 require('src/controllers/login.php');
 require('src/controllers/register.php');
-//create root from filename
-if($_SERVER['REQUEST_URI'] === '/'){
+
+//create route
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+if ($uri === '/index' || $uri === '/') {
     homepageController();
-}elseif($_SERVER['REQUEST_URI'] === '/login'){
+} elseif ($uri === '/index.php/login') {
     loginController();
-}elseif($_SERVER['REQUEST_URI'] === '/register'){
+} elseif ($uri === '/index.php/register') {
     registerController();
+} else {
+    header('HTTP/1.1 404 Not Found');
+    echo '<html><body><h1>Page Not Found</h1></body></html>';
 }
