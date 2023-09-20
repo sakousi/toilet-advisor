@@ -19,6 +19,7 @@ USE `toilet-advisor` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `toilet-advisor`.`user` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `favori` INT NULL,
