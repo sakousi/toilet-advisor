@@ -12,3 +12,28 @@ $bdd = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 if (!$bdd) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+
+// add a new user
+
+function addUser($username, $email, $password) {
+    global $bdd;
+    $req = $bdd->prepare('INSERT INTO users(username, email, password) VALUES(?, ?, ?)');
+    $req->execute(array($username, $email, $password));
+}
+
+// add a new toilet
+
+function addtoilet($address, $accessibility, $cleanliness, $cityId) {
+    global $bdd;
+    $req = $bdd->prepare('INSERT INTO toilets(address, accessibility, cleanliness, city_id) VALUES(?, ?, ?, ?)');
+    $req->execute(array($address, $accessibility, $cleanliness, $cityId));
+}
+
+// add a new city
+
+function addCity($name, $zipCode) {
+    global $bdd;
+    $req = $bdd->prepare('INSERT INTO cities(name, zip_code) VALUES(?, ?)');
+    $req->execute(array($name, $zipCode));
+}
