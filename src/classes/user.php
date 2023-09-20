@@ -9,13 +9,17 @@ class User {
     private $password = '';
     private $favori = 0;
 
-    public function __construct($username, $email, $password) {
-        //add to database
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
-
-        addUser($this->username, $this->email, $this->password);
+    public function __construct($newUser) {
+        //get user from database
+        global $bdd;
+        $req = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+        $req->execute(array($newUser));
+        $user = $req->fetch();
+        $this->id = $user['id'];
+        $this->username = $user['username'];
+        $this->email = $user['email'];
+        $this->password = $user['password'];
+        $this->favori = $user['favori'];
         
     }
 
@@ -26,34 +30,49 @@ class User {
     }
     
     public function getUsernameById($id) {
-        $user = getUser($this->id);
-        return $user['username'];
+        return $this->username;
     }
 
-    public function setUsername($username, $id) {
-        if (strlen($username) < 3) {
+    public function setUsername($newUsername) {
+        if (strlen($newUsername) < 3) {
             throw new Exception('Nom trop court');
         }
-        $this->username = $username;
-        $this->id = $id;
+        //update username in database
+        global $bdd;
+        $req = $bdd->prepare('UPDATE users SET username = ? WHERE id = ?');
+        $req->execute(array($newUsername, $this->id));
+        $this->username = $newUsername;
     }
 
     public function getEmail() {
         return $this->email;
     }
 
-    public function setEmail($email) {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email invalide');
+    public function updateEmail($email) {
+        if (strlen($email) < 3) {
+            throw new Exception('Email trop court');
         }
+        //update email in database
+        global $bdd;
+        $req = $bdd->prepare('UPDATE users SET email = ? WHERE id = ?');
+        $req->execute(array($email, $this->id));
         $this->email = $email;
     }
 
-    public function getFavori() {
-        return $this->favori;
+    public function getFavoris() {
+        //get favoris from the link table favori
+        global $bdd;
+        $req = $bdd->prepare('SELECT * FROM favori WHERE user_id = ?');
+        $req->execute(array($this->id));
+        $favoris = $req->fetchAll();
+        return $favoris;
     }
 
-    public function setFavori($favori) {
-        $this->favori = $favori;
+    public function setFavori($toiletId) {
+        //add toilet to favori
+        global $bdd;
+        $req = $bdd->prepare('INSERT INTO favori (user_id, toilet_id) VALUES (?, ?)');
+        $req->execute(array($this->id, $toiletId));
     }
+
 }
