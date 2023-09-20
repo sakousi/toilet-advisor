@@ -1,14 +1,22 @@
 <?php 
+require('src/model.php');
+
 class User {
 
     private $id = 0;
     private $username = '';
     private $email = '';
+    private $password = '';
     private $favori = 0;
 
-    public function __construct($username, $email) {
+    public function __construct($username, $email, $password) {
+        //add to database
         $this->username = $username;
         $this->email = $email;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+
+        addUser($this->username, $this->email, $this->password);
+        
     }
 
     //getters and setters
@@ -16,23 +24,18 @@ class User {
     public function getId() {
         return $this->id;
     }
-
-    public function setId($id) {
-        if (!is_numeric($id)) {
-            throw new Exception('ID doit être un nombre');
-        }
-        $this->id = $id;
-    }
     
-    public function getUsername() {
-        return $this->username;
+    public function getUsernameById($id) {
+        $user = getUser($this->id);
+        return $user['username'];
     }
 
-    public function setUsername($username) {
+    public function setUsername($username, $id) {
         if (strlen($username) < 3) {
-            throw new Exception('Username trop court');
+            throw new Exception('Nom trop court');
         }
         $this->username = $username;
+        $this->id = $id;
     }
 
     public function getEmail() {

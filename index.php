@@ -1,5 +1,6 @@
 <?php
+require('src/controllers/homepage.php');
 
-require('src/model.php');
-
-require('templates/homepage.php');
+if($_SERVER['REQUEST_URI'] === '/'){
+    homepageController();
+}
