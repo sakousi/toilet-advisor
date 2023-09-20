@@ -2,6 +2,6 @@
 
 require_once('src/model.php');
 
-function login() {
+function loginController() {
 	require('templates/login.php');
 }
