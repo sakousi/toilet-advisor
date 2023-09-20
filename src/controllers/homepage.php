@@ -1,7 +1,5 @@
-<?php
+<?php 
 
-require_once('src/model.php');
+function homepageController() {
 
-function homepage() {
-	require('templates/homepage.php');
-}
+    require('templates/homepage.php');
