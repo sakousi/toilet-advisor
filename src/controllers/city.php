@@ -9,7 +9,7 @@ function cityController(){
         foreach($cityIds as $cityId) {
             array_push($cities, new City($cityId));
         }
-        $_POST['cities'] = $cities;
+        
     }
 
     require 'templates/city.php';
