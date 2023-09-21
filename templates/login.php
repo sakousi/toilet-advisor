@@ -1,4 +1,18 @@
-<?php require "component/header.php" ?>
+<?php include "component/header.php"?>
+<?php
+  if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+    switch ($action) {
+        case 'login':
+            processLogin();
+            break;
+        default:
+            loginController();
+            break;
+    }
+  } else {
+    loginController();
+  } ?>
 
 <form class="flex flex-col items-center" method="post" action="login.php">
   <label for="email" class="text-gray-700 font-bold mb-2">Email:</label>
