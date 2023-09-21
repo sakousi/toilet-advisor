@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< Updated upstream
-// require_once('src/classes/user.php');
 
-=======
->>>>>>> Stashed changes
 function registerController() {
 	require('templates/register.php');
 }

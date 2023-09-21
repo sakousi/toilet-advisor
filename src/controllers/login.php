@@ -2,10 +2,6 @@
 require_once('src/model.php');
 // require_once('src/classes/user.php');
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 function loginController() {
 	require('templates/login.php');
 }
