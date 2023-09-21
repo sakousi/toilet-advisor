@@ -6,7 +6,6 @@ require_once('src/model.php');
 function loginController() {
 	require('templates/login.php');
 }
-
 // Fonction pour traiter la soumission du formulaire de connexion
 function processLogin() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
