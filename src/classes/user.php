@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('src/model.php');
 
 class User {
