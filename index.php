@@ -7,19 +7,32 @@ require('src/controllers/city.php');
 
 //create route
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-if ($uri === '/index' || $uri === '/') {
-    homepageController();
-} elseif ($uri === '/index.php/login') {
-    loginController();
-} elseif ($uri === '/index.php/register') {
-    registerController();
-} elseif ($uri === '/index.php/city') {
-    cityController();
-} elseif ($uri === '/index.php/toilet') {
-    // toiletController();
+if (isset($_GET['action']) && $_GET['action'] !== '') {
+    if($_GET['action'] === 'login') {
+        loginController();
+    } elseif($_GET['action'] === 'search') {
+        searchController();
+    } elseif($_GET['action'] === 'register') {
+        registerController();
+    } else {
+        echo "Erreur 404: la page que vous recherchez n'existe pas";
+    };
 } else {
-    header('HTTP/1.1 404 Not Found');
-    echo '<html><body><h1>Page Not Found</h1></body></html>';
-}
+    homepageController();
+};
+
+
+// $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// if ($uri === '/index' || $uri === '/') {
+//     homepageController();
+// } elseif ($uri === '/index.php/login') {
+//     loginController();
+// } elseif ($uri === '/index.php/register') {
+//     registerController();
+// } elseif ( $uri === '/index.php/search' ) {
+// 	searchController();
+// } else {
+//     header('HTTP/1.1 404 Not Found');
+//     echo '<html><body><h1>Page Not Found</h1></body></html>';
+// }
