@@ -30,15 +30,18 @@ class RegisterController {
 		// Validate the password field
 		if (empty($password)) {
 			$errors['password'] = 'Password is required';
-		  } else if (strlen($password) < 8) {
+		  } 
+		  else if (strlen($password) < 8) {
 			$errors['password'] = 'Password must be at least 8 characters long';
-		  } else if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password)) {
-			$errors['password'] = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
-		  }
+		  } 
+		//   else if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password)) {
+		// 	$errors['password'] = 'Au moins un nombre, une majuscule, une minuscule';
+		//   }
 	
 		  // If there are no errors, add the user to the database
 		  if (empty($errors)) {
 			$this->model->addUser($username, $email, $password);
+
 		  }
 	  }
 	}
