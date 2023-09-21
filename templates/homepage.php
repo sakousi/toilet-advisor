@@ -1,5 +1,4 @@
 <?php include "component/header.php" ?>
-<?php include "component/nav.php" ?>
 
 <h1 class="text-3xl font-bold underline">Hello world!</h1>
 <h1>Toilet advisor</h1>
