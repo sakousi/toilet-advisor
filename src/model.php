@@ -34,6 +34,16 @@ function addtoilet($address, $accessibility, $cleanliness, $cityId) {
 
 function addCity($name, $zipCode) {
     global $bdd;
-    $req = $bdd->prepare('INSERT INTO cities(name, zip_code) VALUES(?, ?)');
+    $req = $bdd->prepare('INSERT INTO city(name, zip_code) VALUES(?, ?)');
     $req->execute(array($name, $zipCode));
+}
+
+// search city by name
+
+function citySearch($name) {
+    global $bdd;
+    $req = $bdd->prepare('SELECT * FROM city WHERE name LIKE ?');
+    $req->execute(array($name . '%'));
+    $city = $req->fetchAll();
+    return $city;
 }
