@@ -2,4 +2,6 @@
 
 node_modules
 
-./style.css
+# Ignore style.css from root directory
+
+style.css

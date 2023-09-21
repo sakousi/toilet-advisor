@@ -23,6 +23,10 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE SCHEMA IF NOT EXISTS `toilet-advisor` DEFAULT CHARACTER SET utf8 ;
+USE `toilet-advisor` ;
+
+
 --
 -- Structure de la table `city`
 --

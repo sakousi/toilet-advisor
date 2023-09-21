@@ -7,6 +7,12 @@
     <link rel="stylesheet" href=<?php echo "http://" . $_SERVER['SERVER_NAME'] . "/style.css" ?>>
 </head>
 <body>
+<nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-semibold text-xl tracking-tight">Toilet Advisor</span>
+        </div>
+    </nav>
+</body>
 <header class="flex items-center justify-between bg-blue-500 p-6">
   <h1 class="text-white font-semibold text-xl tracking-tight">Toilet Finder</h1>
   <div class="flex items-center">
