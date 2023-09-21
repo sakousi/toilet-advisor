@@ -14,6 +14,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         searchController();
     } elseif($_GET['action'] === 'register') {
         registerController();
+    } elseif($_GET['action'] === 'city') {
+        cityController();
+    } elseif($_GET['action'] === 'toilet') {
+        toiletController();
     } else {
         echo "Erreur 404: la page que vous recherchez n'existe pas";
     };
