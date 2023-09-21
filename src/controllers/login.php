@@ -5,7 +5,7 @@ require_once('src/model.php');
 
 
 function loginController() {
-	require('templates/login');
+	require('templates/login.php');
 }
 
 // Fonction pour traiter la soumission du formulaire de connexion
