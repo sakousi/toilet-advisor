@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('src/model.php');
 // require_once('src/classes/user.php');
 
