@@ -2,5 +2,6 @@
 
 node_modules
 
-# Ignore generated stylesheets
-*/style.css
+# Ignore style.css from root directory
+
+style.css
