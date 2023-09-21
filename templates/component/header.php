@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href=<?php echo "http://" . $_SERVER['SERVER_NAME'] . "/style.css" ?>>
 </head>
 <body>
 <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">

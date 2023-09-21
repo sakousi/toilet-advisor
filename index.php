@@ -13,7 +13,4 @@ if ($uri === '/index' || $uri === '/') {
     loginController();
 } elseif ($uri === '/index.php/register') {
     registerController();
-} else {
-    header('HTTP/1.1 404 Not Found');
-    echo '<html><body><h1>Page Not Found</h1></body></html>';
 }

@@ -1,4 +1,4 @@
-<?php include "component/header.php" ?>
+<?php require "component/header.php" ?>
 
 <form class="flex flex-col items-center" method="post" action="login.php">
   <label for="email" class="text-gray-700 font-bold mb-2">Email:</label>
@@ -8,4 +8,4 @@
   <button type="submit" class="px-4 rounded-r-lg bg-gray-800 text-white font-bold p-2 uppercase border-gray-800 border-t border-b border-r hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Login</button>
 </form>
 
-<?php include "component/footer.php" ?>
+<?php require "component/footer.php" ?>
