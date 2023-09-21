@@ -6,17 +6,40 @@ function registerController() {
 	require('templates/register.php');
 }
 
-//Isset
 
 class RegisterController {
-	public function register() {
-	  $username = $_POST['username'];
-	  $email = $_POST['email'];
-	  $password = $_POST['password'];
+	private $user;
   
-	  // Call the model method to add the user to the database
-	  $this->model->addUser($username, $email, $password);
-  
+	public function __construct() {
+	  $this->user = new User();
 	}
-  }
   
+	public function register() {
+	  if (isset($_POST['submit'])) {
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		// Validate the email field
+		if (empty($email)) {
+			$errors['email'] = 'Email is required';
+		  } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$errors['email'] = 'Invalid email format';
+		  }
+		  
+		// Validate the password field
+		if (empty($password)) {
+			$errors['password'] = 'Password is required';
+		  } else if (strlen($password) < 8) {
+			$errors['password'] = 'Password must be at least 8 characters long';
+		  } else if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password)) {
+			$errors['password'] = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
+		  }
+	
+		  // If there are no errors, add the user to the database
+		  if (empty($errors)) {
+			$this->model->addUser($username, $email, $password);
+		  }
+	  }
+	}
+}
