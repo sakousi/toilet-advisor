@@ -10,4 +10,7 @@
   <button type="submit" class="px-4 rounded-r-lg bg-gray-800 text-white font-bold p-2 uppercase border-gray-800 border-t border-b border-r hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Register</button>
 </form>
 
+<a href="/index" class="px-4 rounded-r-lg bg-gray-800 text-white font-bold p-2 uppercase border-gray-800 border-t border-b border-r hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Retour à la page d'accueil</a>
+
+
 <?php include "component/footer.php" ?>
