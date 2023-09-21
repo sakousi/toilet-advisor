@@ -1,7 +1,6 @@
 <?php include "component/header.php" ?>
 <h1 class="text-3xl font-bold underline">Toilet Advisor</h1>
 
-
 <form class="flex flex-col items-center" action="/" method="POST">
     <label for="city" class="text-gray-700 font-bold mb-2">Ville ou code postal:</label>
     <div class="flex items-center">
