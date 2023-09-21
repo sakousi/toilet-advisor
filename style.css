@@ -574,10 +574,6 @@ video {
   margin-top: 1rem;
 }
 
-.mr-6 {
-  margin-right: 1.5rem;
-}
-
 .block {
   display: block;
 }
@@ -608,10 +604,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
 }
 
 .flex-col {

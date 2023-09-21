@@ -1,4 +1,4 @@
-<footer class="bg-blue-500 p-6 text-white">
+<footer class="bg-blue-500 p-6 text-white mt-4">
   <div class="flex justify-between items-center">
     <div>
       <p>&copy; 2023 Toilet Finder</p>
