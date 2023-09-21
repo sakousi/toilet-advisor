@@ -74,6 +74,115 @@
   </a>
 </div>
 
+<script>
+  // Get the canvas element and its context
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
 
+  // Load the background image
+  const backgroundImage = new Image();
+  backgroundImage.src = "https://img.staticmb.com/mbcontent/images/uploads/2021/7/brick-wall-bathroom-wallpaper-design.jpg";
+  backgroundImage.onload = function () {
+    // Draw the background image on the canvas
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+  };
+
+  // Load the toilet image
+  const toiletImage = new Image();
+  toiletImage.src = "https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/512x512/plain/toilet.png";
+
+  // Load the ball image
+  const ballImage = new Image();
+  ballImage.src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-white-toilet-paper-image_1400497.jpg";
+  ballImage.onload = function () {
+    // Start the game loop after the ball image is loaded
+    requestAnimationFrame(gameLoop);
+  };
+
+  // Set up the game variables
+  let score = 0;
+  let balls = [];
+
+  // Set up the event listener for mouse clicks
+  canvas.addEventListener("click", function (event) {
+    // Create a new ball at the mouse position
+    const ball = {
+      x: event.clientX - canvas.getBoundingClientRect().left,
+      y: event.clientY - canvas.getBoundingClientRect().top,
+      radius: 10,
+      color: "red",
+      speed: 5,
+      angle: Math.random() * Math.PI,
+    };
+
+    // Add the ball to the balls array
+    balls.push(ball);
+  });
+
+  // Update the ball's movement
+  function updateBall(ball) {
+    // Move the ball
+    ball.x += ball.speed * Math.cos(ball.angle);
+    ball.y += ball.speed * Math.sin(ball.angle);
+
+    // Check if the ball is in the bottom half of the canvas
+    if (ball.y > canvas.height / 2) {
+      // Generate a new random angle for the ball
+      ball.angle = Math.random() * Math.PI;
+    }
+  }
+
+  // Set up the game loop
+  function gameLoop() {
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the background image
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+    // Draw the toilet image
+    ctx.drawImage(toiletImage, canvas.width / 2 - 25, canvas.height - 50, 50, 50);
+
+    // Update and draw the balls
+    for (let i = 0; i < balls.length; i++) {
+      const ball = balls[i];
+
+      // Update the ball's movement
+      updateBall(ball);
+
+      // Check if the ball is inside the toilet
+      if (
+        ball.x > canvas.width / 2 - 25 &&
+        ball.x < canvas.width / 2 + 25 &&
+        ball.y > canvas.height - 50 &&
+        ball.y < canvas.height
+      ) {
+        // Increment the score and remove the ball
+        score++;
+        balls.splice(i, 1);
+      } else {
+        // Draw the ball
+        ctx.drawImage(
+          ballImage,
+          ball.x - ball.radius,
+          ball.y - ball.radius,
+          ball.radius * 2,
+          ball.radius * 2
+        );
+      }
+    }
+
+    // Draw the score
+    ctx.fillStyle = "black";
+    ctx.font = "24px Arial";
+    ctx.fillText("Score: " + score, 10, 30);
+
+    // Call the game loop again
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Start the game loop
+  requestAnimationFrame(gameLoop);
+</script>
 
 <?php require 'component/footer.php'; ?>
