@@ -20,18 +20,18 @@ class LoginController {
 			$password = $_POST['password'];
 		
 			// Validate the username and password fields
-			if (empty($username)) {
-			$errors['username'] = 'Username is required';
+			if (empty($email)) {
+			$errors['email'] = 'Email requis';
 			}
 			if (empty($password)) {
-			$errors['password'] = 'Password is required';
+			$errors['password'] = 'Mot de passe requis';
 			}
 		
 			// If there are no errors, check if the user exists in the database
 			if (empty($errors)) {
 			//Check if the user exists in the database
-			$stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');
-			$stmt->execute(array('username' => $username));
+			$stmt = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+			$stmt->execute(array('email' => $email));
 			$user = $stmt->fetch();
 		
 			if ($user && password_verify($password, $user['password'])) {
