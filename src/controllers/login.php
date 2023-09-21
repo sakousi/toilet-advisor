@@ -1,12 +1,11 @@
 <?php
-
+session_start();
 require_once('src/model.php');
 // require_once('src/classes/user.php');
 
 
 function loginController() {
-	require('templates/login.php');
-
+	require('templates/login');
 }
 
 // Fonction pour traiter la soumission du formulaire de connexion
@@ -28,13 +27,16 @@ function processLogin() {
 		};
 
         if ($formValide) {
+            //Remplir les variables de sessions
+            $_SESSION['nom'] = $result[0].username;
+            $_SESSION['email'] = $email;
             // Redirigez l'utilisateur vers la page d'accueil
-            header('Location: index.php');
+            header('Location: homepage.php');
             exit();
         } else {
             // Affichez un message d'erreur
             $error = "Identifiants incorrects.";
-            require('loginView.php');
+            require('loginController.php');
         }
     }
 }
