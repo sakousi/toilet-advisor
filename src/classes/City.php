@@ -1,4 +1,5 @@
 <?php
+
 class City{
 
     private $id = 0;
@@ -9,18 +10,18 @@ class City{
     private $toilets = array();
 
 
-    public function __construct($name, $zipCode) {
+    public function __construct(int $id) {
         //set city by the database and join with the toilets table
         global $bdd;
-        $req = $bdd->prepare('SELECT * FROM cities INNER JOIN toilets ON cities.id = toilets.city_id WHERE cities.name = ? AND cities.zip_code = ?');
-        $req->execute(array($name, $zipCode));
+        $req = $bdd->prepare('SELECT city.*, toilet.id AS toiletId FROM city LEFT JOIN toilet ON city.id = toilet.city_id WHERE city.id = ?');
+        $req->execute(array($id));
         $city = $req->fetch();
         $this->id = $city['id'];
         $this->name = $city['name'];
+        $this->zipCode = $city['zipCode'];
         $this->latitude = $city['latitude'];
         $this->longitude = $city['longitude'];
-        $this->zipCode = $city['zip_code'];
-        $this->toilets = $city['toilets']; //array of toilets ids
+        $this->toilets = $city['toiletId']; //array of toilets ids
 
     }
 
