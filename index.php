@@ -2,6 +2,7 @@
 require('src/controllers/homepage.php');
 require('src/controllers/login.php');
 require('src/controllers/register.php');
+require('src/controllers/search.php');
 
 //create route
 
@@ -13,6 +14,8 @@ if ($uri === '/index' || $uri === '/') {
     loginController();
 } elseif ($uri === '/index.php/register') {
     registerController();
+} elseif ( $uri === '/index.php/search' ) {
+	searchController();
 } else {
     header('HTTP/1.1 404 Not Found');
     echo '<html><body><h1>Page Not Found</h1></body></html>';
