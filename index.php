@@ -10,8 +10,6 @@ require('src/controllers/city.php');
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     if($_GET['action'] === 'login') {
         loginController();
-    } elseif($_GET['action'] === 'search') {
-        searchController();
     } elseif($_GET['action'] === 'register') {
         registerController();
     } elseif($_GET['action'] === 'city') {
