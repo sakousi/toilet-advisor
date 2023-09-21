@@ -1,7 +1,5 @@
 <?php
 
-require_once('src/classes/user.php');
-
 function registerController() {
 	require('templates/register.php');
 }
