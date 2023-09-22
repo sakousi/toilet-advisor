@@ -68,6 +68,8 @@
 
 </div>
 
+<!-- end of content -->
+
 <div class="fixed bottom-0 right-0 p-4">
   <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     Back to Top
