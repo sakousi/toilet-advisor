@@ -20,7 +20,7 @@ function homepageController() {
                 array_push($cityIds, $city['id']);
             }
             $queryCity =serialize($cityIds);
-            header('Location: index.php/city?cityIds=' . $queryCity);
+            header('Location: /city?cityIds=' . $queryCity);
         }
     }
 
