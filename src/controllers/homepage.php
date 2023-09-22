@@ -1,7 +1,5 @@
 <?php 
 
-require('src/model.php');
-
 function homepageController() {
 
     if(isset($_POST['search'])) {

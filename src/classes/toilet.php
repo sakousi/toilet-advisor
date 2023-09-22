@@ -1,5 +1,4 @@
 <?php
-require 'src/model.php';
 class Toilet{
 
     private $id = 0;

@@ -1,5 +1,4 @@
 <?php 
-require('src/classes/City.php');
 
 function cityController(){
 

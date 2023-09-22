@@ -39249,9 +39249,10 @@ INSERT INTO `city` (`id`, `name`, `zipCode`, `latitude`, `longitude`) VALUES
 
 DROP TABLE IF EXISTS `favori`;
 CREATE TABLE IF NOT EXISTS `favori` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
   `toilet_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`user_id`,`toilet_id`),
+  PRIMARY KEY (`id`),
   KEY `fk_toilet_has_user_user1_idx` (`user_id`),
   KEY `fk_toilet_has_user_toilet_idx` (`toilet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
