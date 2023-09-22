@@ -1,6 +1,7 @@
 <?php include "component/header.php" ?>
-
+<main class="mb-auto">
 <form class="flex flex-col items-center py-10" method="post" action="/register">
+
   <label for="username" class="text-gray-700 font-bold mb-2">Username:</label>
   <input type="text" id="username" name="username" class="w-3/4 px-4 py-2 rounded-lg border-t mr-0 border-b border-gray-200 text-gray-800 bg-white focus:outline-none focus:border-gray-500 border-l border-r" placeholder="Name" required>
   <label for="email" class="text-gray-700 font-bold mb-2">Email:</label>
@@ -16,6 +17,6 @@
   <a href="/index" class="px-4 rounded-r-lg bg-gray-800 text-white font-bold p-2 uppercase border-gray-800 border-t border-b border-r hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Retour à la page d'accueil</a>
 </div>
 
-
+</main>
 
 <?php include "component/footer.php" ?>
