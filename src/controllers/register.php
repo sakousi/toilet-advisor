@@ -1,6 +1,5 @@
 <?php
 
-
 function registerController() {
 	require('templates/register.php');
 }
