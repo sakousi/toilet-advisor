@@ -1,26 +1,22 @@
 <?php 
-session_start();
-require('src/model.php');
 
 class User {
 
     private $id = 0;
     private $username = '';
     private $email = '';
-    private $password = '';
-    private $favori = 0;
+    private $favori = array();
 
     public function __construct($newUser) {
         //get user from database
         global $bdd;
-        $req = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+        $req = $bdd->prepare('SELECT user.*, favori.id AS favoriId FROM user LEFT JOIN favori ON user.id = favori.user_id WHERE user.id = ?');
         $req->execute(array($newUser));
         $user = $req->fetch();
         $this->id = $user['id'];
         $this->username = $user['username'];
         $this->email = $user['email'];
-        $this->password = $user['password'];
-        $this->favori = $user['favori'];
+        $this->favori = $user['favoriId'];
         
     }
 
@@ -61,12 +57,7 @@ class User {
     }
 
     public function getFavoris() {
-        //get favoris from the link table favori
-        global $bdd;
-        $req = $bdd->prepare('SELECT * FROM favori WHERE user_id = ?');
-        $req->execute(array($this->id));
-        $favoris = $req->fetchAll();
-        return $favoris;
+        return $this->favori;
     }
 
     public function setFavori($toiletId) {

@@ -47,3 +47,42 @@ function citySearch($name) {
     $city = $req->fetchAll();
     return $city;
 }
+
+function login($email, $password) {
+    global $bdd;
+    $req = $bdd->prepare('SELECT id, password FROM user WHERE email = ?');
+    $req->execute(array($email));
+    $user = $req->fetch();
+    if($user) {
+        if(password_verify($password, $user['password'])) {
+            return ['success' => true, 'id' => $user['id']];
+        }else {
+            return 'Mot de passe incorrect';
+        }
+    }else {
+        return 'Cet email n\'existe pas';
+    }
+}
+
+function register($username, $email, $password, $passwordConfirm) {
+    global $bdd;
+    $req = $bdd->prepare('SELECT * FROM user WHERE email = ?');
+    $req->execute(array($email));
+    $user = $req->fetch();
+    if($user) {
+        return 'Cet email est déjà utilisé';
+    }else {
+        if($password != $passwordConfirm) {
+            return 'Les mots de passe ne correspondent pas';
+        }else {
+            $req = $bdd->prepare('INSERT INTO user(username, email, password) VALUES(?, ?, ?)');
+            $req->execute(array($username, $email, password_hash($password, PASSWORD_ARGON2I)));
+            $userId = $bdd->lastInsertId();
+            return ['success' => true, 'id' => $userId];
+        }
+    }
+}
+
+include_once "classes/City.php";
+include_once "classes/toilet.php";
+include_once "classes/user.php";
