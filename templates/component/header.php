@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toilet_finder</title>
+    <link rel="icon" type="image/png" href="img/fav-icon/favicon.ico">
     <link rel="stylesheet" href=<?php echo "http://" . $_SERVER['SERVER_NAME'] . "/style.css" ?>>
+
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
 <header class="flex items-center justify-between bg-blue-500 p-6">
   <a href="/" class="text-white font-semibold text-xl tracking-tight">Toilet Finder</a>

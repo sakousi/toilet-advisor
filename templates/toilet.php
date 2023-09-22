@@ -1,5 +1,7 @@
 <?php require 'component/header.php'; ?>
 
+<main class="mb-auto">
+
 <!-- Content -->
 <div class="container mx-auto max-w-screen-lg mt-8">
   <h1 class="text-3xl font-bold mb-4">Find Nearby Toilets</h1>
@@ -186,5 +188,7 @@
   // Start the game loop
   requestAnimationFrame(gameLoop);
 </script>
+
+</main>
 
 <?php require 'component/footer.php'; ?>
