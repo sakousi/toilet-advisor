@@ -3,7 +3,7 @@ require('src/controllers/homepage.php');
 require('src/controllers/login.php');
 require('src/controllers/register.php');
 require('src/controllers/city.php');
-// require('src/controllers/toilet.php');
+require('src/controllers/toilet.php');
 
 //create route
 
@@ -17,6 +17,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     } elseif($_GET['action'] === 'toilet') {
         toiletController();
     } else {
+        header('HTTP/1.1 404 Not Found');
         echo "Erreur 404: la page que vous recherchez n'existe pas";
     };
 } else {
