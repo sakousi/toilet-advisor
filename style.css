@@ -574,20 +574,12 @@ video {
   margin-right: 1rem;
 }
 
-.mr-6 {
-  margin-right: 1.5rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
 }
 
 .block {
@@ -626,8 +618,8 @@ video {
   width: 100%;
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0;
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .flex-col {
@@ -664,10 +656,6 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
 }
 
 .rounded-l-lg {
@@ -744,11 +732,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
 .fill-current {
   fill: currentColor;
 }
@@ -791,41 +774,15 @@ video {
   padding-bottom: 0.5rem;
 }
 
-<<<<<<< Updated upstream
-=======
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
->>>>>>> Stashed changes
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-<<<<<<< Updated upstream
 .pb-2 {
   padding-bottom: 0.5rem;
 }
 
-=======
->>>>>>> Stashed changes
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -834,26 +791,13 @@ video {
   padding-right: 2rem;
 }
 
-<<<<<<< Updated upstream
-=======
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
->>>>>>> Stashed changes
 .pt-4 {
   padding-top: 1rem;
 }
 
-<<<<<<< Updated upstream
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-=======
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
->>>>>>> Stashed changes
 }
 
 .text-sm {
@@ -864,17 +808,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-<<<<<<< Updated upstream
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-=======
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
->>>>>>> Stashed changes
 }
 
 .font-bold {
@@ -915,10 +848,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
 }
 
 .shadow-lg {
